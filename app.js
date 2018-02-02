@@ -11,9 +11,8 @@ app.keys = [config.server.secret_key]
 app.use(bodyParser())
 app.use(logger())
 exceptions.init_app(app)
-mongodb.getDB('common_api', config.mongodb).then(common_api_db => {
-    app.context.common_api_db = common_api_db
-
+mongodb.getConnection(config.mongodb).then(conn => {
+    app.context.common_api_db = conn.db('common_api')
 }).catch(err => {
     app.emit('error', err)
 })
