@@ -1,0 +1,23 @@
+{
+  "name": "common_api",
+  "version": "1.0.0",
+  "description": "common api backend",
+  "main": "app.js",
+  "dependencies": {
+    "co-wechat-api": "^3.3.2",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.3.0",
+    "mongodb": "^2.2.33"
+  },
+  "devDependencies": {
+    "pm2": "^2.7.2"
+  },
+  "scripts": {
+    "dev": "pm2 start app.js --name common_api_dev --watch --log-date-format=\"YYYY-MM-DD HH:mm:ss.SSSS Z\"",
+    "prod": "pm2 start app.js --name common_api -i 4 --log-date-format=\"YYYY-MM-DD HH:mm:ss.SSSS Z\""
+  },
+  "author": "avicha",
+  "license": "ISC"
+}
