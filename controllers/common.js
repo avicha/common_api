@@ -20,12 +20,12 @@ module.exports = class CommonController extends BaseController {
                     accessToken: weixin_config.access_token,
                     expireTime: weixin_config.expire_time
                 }
-            }, async(token) => {
+            }, async (token) => {
                 weixin_config_collection.updateOne({ app_id: app_id }, { $set: { access_token: token.accessToken, expire_time: token.expireTime } })
             })
             weixin_api.registerTicketHandle(type => {
                 return { ticket: weixin_config[type + '_ticket'], expireTime: weixin_config[type + '_expireTime'] }
-            }, async(type, ticket) => {
+            }, async (type, ticket) => {
                 let update_obj = {
 
                 }

@@ -12,7 +12,7 @@ app.use(bodyParser())
 app.use(logger())
 exceptions.init_app(app)
 mongodb.getConnection(config.mongodb).then(conn => {
-    app.context.common_api_db = conn.db('common_api')
+    app.context.common_api_db = conn.db('etech_common_api')
 }).catch(err => {
     app.emit('error', err)
 })

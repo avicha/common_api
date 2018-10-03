@@ -3,6 +3,7 @@ const commonController = new(require('./common'))()
 
 module.exports = {
     init_app(app) {
+        // 公用路由
         const commonRouter = new Router({
             prefix: '/api/common'
         })
